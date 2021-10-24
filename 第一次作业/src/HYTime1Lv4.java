@@ -18,14 +18,14 @@ public class HYTime1Lv4 {
         String[] stname = new String[5];
         float[] stprice = new float[5];
         int con = 1;
-        float sum = 0;
         Scanner sc = new Scanner(System.in);
         Dishes dishes = new Dishes();
         System.out.println("欢迎来到国民饭店，这是今天的菜单：");
         for (int i = 0; i < con; i++) {
+            float sum = 0;
             dishes.getdishes();
             System.out.println("请输入想要点的菜的序号");
-            int num = sc.nextInt();
+            int num = sc.nextInt() - 1;
             for (int j = 0; j < con; j++) {
                 stname[con - 1] = Dishes.name[num];
                 stprice[con - 1] = Dishes.price[num];
@@ -44,5 +44,14 @@ public class HYTime1Lv4 {
                 con++;
             }
         }
+        System.out.println("请选择支付方式：（“1” 支付宝；“2” 微信；“3” 人脸识别）");
+        int payway = sc.nextInt();
+        if(payway == 1 || payway == 2){
+            System.out.println("请出示付款码。");
+        }
+        else{
+            System.out.println("请平视摄像头。");
+        }
+        System.out.println("支付成功。"+"\n"+"感谢您的光临！");
     }
 }
